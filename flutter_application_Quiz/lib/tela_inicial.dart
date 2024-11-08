@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'tela_quiz.dart';
+
+
 
 class TelaInicial extends StatelessWidget {
   @override
@@ -13,10 +16,8 @@ class TelaInicial extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWBd9Bgr7i4aMjPBSkFwkb2FYcW3cfjlJ05w&s',
-                height: 200,
-              ),
+              Image.asset('lib/Assets/TelaInicial.webp'),
+
               SizedBox(height: 20),
               Text(
                 'Quiz de Conhecimentos Gerais',
@@ -33,7 +34,7 @@ class TelaInicial extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Ação do botão, não navega para outra página
-                  print('Quiz iniciado!');
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Quiz()),);
                 },
                 child: Text(
                   'Iniciar Quiz',

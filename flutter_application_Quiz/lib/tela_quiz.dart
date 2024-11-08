@@ -1,19 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Quiz de Conhecimentos Gerais',
-      
-      home: Quiz(),
-    );
-  }
-}
+import 'tela_final.dart';
 
 class Quiz extends StatefulWidget {
   @override
@@ -85,7 +71,6 @@ class _TelaDoQuiz extends State<Quiz> {
       'options': ['Verdadeiro', 'Falso'],
       'perguntaCorret': 'Verdadeiro',
     },
-    
   ];
 
   void verificarPerguntas(String respostaSelecionada) {
@@ -97,30 +82,17 @@ class _TelaDoQuiz extends State<Quiz> {
       if (perguntaAtual < perguntas.length - 1) {
         perguntaAtual++;
       } else {
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text('Fim do Quiz!'),
-            content: Text('Você acertou $perguntaCorreta de ${perguntas.length} perguntas.'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  resetQuiz();
-                },
-                child: Text('Recomeçar'),
-              ),
-            ],
+        // Navega para a TelaFinal ao terminar todas as perguntas
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TelaFinal(
+              respostasCorretas: perguntaCorreta,
+              totalPerguntas: perguntas.length,
+            ),
           ),
         );
       }
-    });
-  }
-
-  void resetQuiz() {
-    setState(() {
-      perguntaAtual = 0;
-      perguntaCorreta = 0;
     });
   }
 
@@ -137,7 +109,7 @@ class _TelaDoQuiz extends State<Quiz> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWBd9Bgr7i4aMjPBSkFwkb2FYcW3cfjlJ05w&s', height: 200,),
+            Image.asset('lib/Assets/TelaQuiz.jpg', height: 300),
             Text(
               currentQuestion['question'] as String,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -146,7 +118,6 @@ class _TelaDoQuiz extends State<Quiz> {
             SizedBox(height: 20),
             ...(currentQuestion['options'] as List<String>).map((option) {
               return Padding(
-                
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
                 child: ElevatedButton(
                   onPressed: () => verificarPerguntas(option),

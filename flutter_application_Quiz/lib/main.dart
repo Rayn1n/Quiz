@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       title: 'Meu App de Quiz',
       theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
       home: TelaInicial(),
     );
   }

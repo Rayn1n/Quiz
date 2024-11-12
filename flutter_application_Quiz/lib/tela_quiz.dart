@@ -14,7 +14,7 @@ class _TelaDoQuiz extends State<Quiz> {
     {
       'question': 'Qual tecnica goku aprendeu com Sr. Kaioh em dbz?',
       'options': ['KameHameHa', 'Galick Ho', 'Kaioken', 'Kaiojin'],
-      'perguntaCorret': 'KaioKen',
+      'perguntaCorret': 'Kaioken',
       'image': 'lib/Assets/Q1.jpg',
     },
     {
@@ -56,7 +56,7 @@ class _TelaDoQuiz extends State<Quiz> {
     {
       'question': 'Em qual planeta goku aprendeu o teletransporte',
       'options': ['Planeta Yardrat', 'Planeta Sadalla', 'Planeta Vegeta', 'Planeta Terra'],
-      'perguntaCorret': 'Planeta Yardrat.',
+      'perguntaCorret': 'Planeta Yardrat',
       'image': 'lib/Assets/Q8.webp',
     },
     {
@@ -101,47 +101,59 @@ class _TelaDoQuiz extends State<Quiz> {
       }
     });
   }
-@override
-Widget build(BuildContext context) {
-  final currentQuestion = perguntas[perguntaAtual];
 
-  return Scaffold(
-    appBar: AppBar(
-      title: Text('Quiz de Conhecimentos Gerais'),
-    ),
-    body: Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          if (currentQuestion['image'] != null) 
-            Image.asset(
-              currentQuestion['image'] as String,
-              width: 400,
-              height: 200,
-            ),
-          SizedBox(height: 20),
-          Text(
-            currentQuestion['question'] as String,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 20),
-          ...(currentQuestion['options'] as List<String>).map((option) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: ElevatedButton(
-                onPressed: () => verificarPerguntas(option),
-                child: Text(option, style: TextStyle(fontSize: 18)),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                ),
+  @override
+  Widget build(BuildContext context) {
+    final currentQuestion = perguntas[perguntaAtual];
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Quiz DBZ'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: Center(
+              child: Text(
+                'Pergunta ${perguntaAtual + 1}/${perguntas.length}',
+                style: TextStyle(fontSize: 18),
               ),
-            );
-          }).toList(),
+            ),
+          ),
         ],
       ),
-    ),
-  );
- }
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            if (currentQuestion['image'] != null)
+              Image.asset(
+                currentQuestion['image'] as String,
+                width: 400,
+                height: 200,
+              ),
+            SizedBox(height: 20),
+            Text(
+              currentQuestion['question'] as String,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            ...(currentQuestion['options'] as List<String>).map((option) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                child: ElevatedButton(
+                  onPressed: () => verificarPerguntas(option),
+                  child: Text(option, style: TextStyle(fontSize: 18)),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(double.infinity, 50),
+                  ),
+                ),
+              );
+            }).toList(),
+          ],
+        ),
+      ),
+    );
+  }
 }

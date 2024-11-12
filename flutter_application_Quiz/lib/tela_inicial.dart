@@ -8,7 +8,7 @@ class TelaInicial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela Inicial'),
+        title: Text('Quiz dbz'),
       ),
       body: Center(
         child: Padding(
@@ -16,11 +16,11 @@ class TelaInicial extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('lib/Assets/TelaInicial.webp'),
+              Image.asset('lib/Assets/TelaInicial.jpg'),
 
               SizedBox(height: 20),
               Text(
-                'Quiz de Conhecimentos Gerais',
+                'Quiz Dbz',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),

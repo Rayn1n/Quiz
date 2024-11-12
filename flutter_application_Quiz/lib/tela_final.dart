@@ -19,7 +19,7 @@ class TelaFinal extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('lib/Assets/TelaFinal.png', height: 200,),
+              Image.asset('lib/Assets/TelaFinal.jpg', height: 200,),
               Text(
                 'Parabéns por concluir o quiz!',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

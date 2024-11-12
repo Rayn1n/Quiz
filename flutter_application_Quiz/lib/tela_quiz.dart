@@ -12,64 +12,70 @@ class _TelaDoQuiz extends State<Quiz> {
 
   final List<Map<String, Object>> perguntas = [
     {
-      'question': 'Qual é a capital do Brasil?',
-      'options': ['Rio de Janeiro', 'Brasília', 'São Paulo', 'Salvador'],
-      'perguntaCorret': 'Brasília',
+      'question': 'Qual tecnica goku aprendeu com Sr. Kaioh em dbz?',
+      'options': ['KameHameHa', 'Galick Ho', 'Kaioken', 'Kaiojin'],
+      'perguntaCorret': 'KaioKen',
+      'image': 'lib/Assets/Q1.jpg',
     },
     {
-      'question': 'Qual é a maior floresta tropical do mundo?',
-      'options': [
-        'Floresta Amazônica',
-        'Floresta Negra',
-        'Floresta de Bialowieza',
-        'Floresta Boreal'
-      ],
-      'perguntaCorret': 'Floresta Amazônica',
+      'question': 'Contra quem o goku despertou o ssj?',
+      'options': ['Vegeta', 'Raditz', 'Freeza', 'Ginyu'],
+      'perguntaCorret': 'Freeza',
+      'image': 'lib/Assets/Q2.webp',
     },
     {
-      'question': 'Qual é o planeta mais próximo do Sol?',
-      'options': ['Terra', 'Vênus', 'Marte', 'Mercúrio'],
-      'perguntaCorret': 'Mercúrio',
+      'question': 'Quem e o pai de goku?',
+      'options': ['Gohan', 'Bardock', 'Kuririn', 'Tao Pai Pai'],
+      'perguntaCorret': 'Bardock',
+      'image': 'lib/Assets/Q3.jpg',
     },
     {
-      'question': 'Em que ano o homem pisou na Lua pela primeira vez?',
-      'options': ['1959', '1969', '1979', '1989'],
-      'perguntaCorret': '1969',
+      'question': 'Qual era o personagem que aremessava um tronco para voar?',
+      'options': ['Kame', 'Tien', 'Yamcha', 'Tao Pai Pai'],
+      'perguntaCorret': 'Tao Pai Pai',
+      'image': 'lib/Assets/Q4.png',
     },
     {
-      'question': 'Qual a composição da água?',
-      'options': ['Composto BioOrganico', 'H2o', 'Composto Inorgânico', 'Composto Organico'],
-      'perguntaCorret': 'Composto Inorgânico',
+      'question': 'Como gohan despertou o ssj2?',
+      'options': ['Com a morte de goku', 'Com a morte do android 16', 'Com a morte do android 17', 'Com a morte do vegeta'],
+      'perguntaCorret': 'Com a morte do android 16',
+      'image': 'lib/Assets/Q5.webp',
     },
     {
-      'question': 'Quantos ossos tem no corpo humano?',
-      'options': ['206', '200', '190', '220'],
-      'perguntaCorret': '206',
+      'question': 'Quais androides cell absolveu para chegar em sua forma perfeita?',
+      'options': ['Android 17 e 18', 'Android 16 e 19', 'Android 16 e 17', 'Android 16 e 18'],
+      'perguntaCorret': 'Android 17 e 18',
+      'image': 'lib/Assets/Q6.webp',
     },
     {
-      'question': 'Onde os animes foram criados?',
-      'options': ['Brasil', 'Coreia', 'China', 'Japão'],
-      'perguntaCorret': 'Japão',
+      'question': 'Quem foi o criador de dbz?',
+      'options': ['Masashi Kishimoto', 'Akira Toriyama', 'Gege Akutami', 'Eiichiro Oda'],
+      'perguntaCorret': 'Akira Toriyama',
+      'image': 'lib/Assets/Q7.png',
     },
     {
-      'question': 'Qual a idade aproximada do planeta terra?',
-      'options': ['5 Bilhões de anos', '4,5 Bilhões de anos', '4 Bilhões de anos', '3,5 Bilhões de anos'],
-      'perguntaCorret': '4,5 Bilhões de anos',
+      'question': 'Em qual planeta goku aprendeu o teletransporte',
+      'options': ['Planeta Yardrat', 'Planeta Sadalla', 'Planeta Vegeta', 'Planeta Terra'],
+      'perguntaCorret': 'Planeta Yardrat.',
+      'image': 'lib/Assets/Q8.webp',
     },
     {
-      'question': 'Quem foi o primeiro humano a pisar na lua?',
-      'options': ['Donald Alden Armstrong', 'Neil Alden Armstrong', 'Neil Alden ArmWeak', 'Joey Armstrong'],
-      'perguntaCorret': 'Neil Alden Armstrong',
+      'question': 'Em que episódio Freeza aparece pela primeira vez?',
+      'options': ['Ep. 44', 'Ep. 32', 'Ep. 53', 'Ep. 47'],
+      'perguntaCorret': 'Ep. 44',
+      'image': 'lib/Assets/Q9.jpg',
     },
     {
-      'question': 'Quanto e 1 com 1?',
-      'options': ['11', '1', '2', '10'],
-      'perguntaCorret': '11',
+      'question': 'Qual o nome da esposa de Bardock ',
+      'options': ['Kale', 'Caulifla', 'Jerez', 'Gine'],
+      'perguntaCorret': 'Gine',
+      'image': 'lib/Assets/Q10.jpg',
     },
     {
-      'question': '1+1 = 2?',
-      'options': ['Verdadeiro', 'Falso'],
-      'perguntaCorret': 'Verdadeiro',
+      'question': 'Qual o nome da forma animal de Goku?',
+      'options': ['Ozaru', 'Tsufurujin', 'Raposa', 'Hirudegarn'],
+      'perguntaCorret': 'Ozaru',
+      'image': 'lib/Assets/Q11.webp',
     },
   ];
 
@@ -95,42 +101,47 @@ class _TelaDoQuiz extends State<Quiz> {
       }
     });
   }
+@override
+Widget build(BuildContext context) {
+  final currentQuestion = perguntas[perguntaAtual];
 
-  @override
-  Widget build(BuildContext context) {
-    final currentQuestion = perguntas[perguntaAtual];
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Quiz de Conhecimentos Gerais'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset('lib/Assets/TelaQuiz.jpg', height: 300),
-            Text(
-              currentQuestion['question'] as String,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+  return Scaffold(
+    appBar: AppBar(
+      title: Text('Quiz de Conhecimentos Gerais'),
+    ),
+    body: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          if (currentQuestion['image'] != null) 
+            Image.asset(
+              currentQuestion['image'] as String,
+              width: 400,
+              height: 200,
             ),
-            SizedBox(height: 20),
-            ...(currentQuestion['options'] as List<String>).map((option) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: ElevatedButton(
-                  onPressed: () => verificarPerguntas(option),
-                  child: Text(option, style: TextStyle(fontSize: 18)),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 50),
-                  ),
+          SizedBox(height: 20),
+          Text(
+            currentQuestion['question'] as String,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 20),
+          ...(currentQuestion['options'] as List<String>).map((option) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: ElevatedButton(
+                onPressed: () => verificarPerguntas(option),
+                child: Text(option, style: TextStyle(fontSize: 18)),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50),
                 ),
-              );
-            }).toList(),
-          ],
-        ),
+              ),
+            );
+          }).toList(),
+        ],
       ),
-    );
-  }
+    ),
+  );
+ }
 }

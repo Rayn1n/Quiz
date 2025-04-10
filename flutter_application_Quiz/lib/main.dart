@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget{
       title: 'Quiz dbz',
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: tela_quiz(),
+      home: TelaInicial(),
     );
   }
 }
